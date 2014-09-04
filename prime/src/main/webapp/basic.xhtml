@@ -1,0 +1,49 @@
+
+<html xmlns="http://www.w3c.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:f="http://java.sun.com/jsf/core">
+ <h:head>
+</h:head>
+
+
+<h:form id="form">
+<h:body>
+    <p:treeTable value="#{ttBasicView.root}" var="document">
+        <f:facet name="header">
+            Document Viewer
+        </f:facet>
+        
+          <p:columnGroup type="header">
+                <p:column rowspan="3" headerText="Manufacturer" />
+                <p:column colspan="4" headerText="Sale Rate" />
+                <p:column colspan="2" headerText="Sales" />
+                <p:column colspan="2" headerText="Profit" />
+         </p:columnGroup>
+        
+        <p:column headerText="Name">
+            <h:outputText value="#{document.name}" />
+        </p:column>
+        <p:column headerText="Size">
+            <h:outputText value="#{document.size}" />
+        </p:column>
+        <p:column headerText="Type">
+            <h:outputText value="#{document.type}" />
+        </p:column>
+        <p:column style="width:24px">
+         <p:selectManyCheckbox id="selectedOptions" value="#{document.selectedOptions}">
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS+" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+            <f:selectItem itemLabel="PC" itemValue="PC" />
+        </p:selectManyCheckbox>
+        </p:column>
+        
+      
+    </p:treeTable>
+ 
+   
+    </h:body>
+</h:form>
+
+</html>
